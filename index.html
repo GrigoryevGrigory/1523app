@@ -1,10 +1,2084 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>1523app</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ассистент поступления в лицей 1523</title>
+    <style>
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+            --color-bg-1: rgba(59, 130, 246, 0.08);
+            --color-bg-2: rgba(245, 158, 11, 0.08);
+            --color-bg-3: rgba(34, 197, 94, 0.08);
+            --color-bg-4: rgba(239, 68, 68, 0.08);
+            --color-bg-5: rgba(147, 51, 234, 0.08);
+            --color-bg-6: rgba(249, 115, 22, 0.08);
+            --color-bg-7: rgba(236, 72, 153, 0.08);
+            --color-bg-8: rgba(6, 182, 212, 0.08);
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --focus-ring: 0 0 0 3px var(--color-focus-ring);
+            --focus-outline: 2px solid var(--color-primary);
+            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-10: 10px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+        }
+
+        [data-color-scheme="dark"] {
+            --color-gray-400-rgb: 119, 124, 124;
+            --color-teal-300-rgb: 50, 184, 198;
+            --color-gray-300-rgb: 167, 169, 169;
+            --color-gray-200-rgb: 245, 245, 245;
+            --color-bg-1: rgba(29, 78, 216, 0.15);
+            --color-bg-2: rgba(180, 83, 9, 0.15);
+            --color-bg-3: rgba(21, 128, 61, 0.15);
+            --color-bg-4: rgba(185, 28, 28, 0.15);
+            --color-bg-5: rgba(107, 33, 168, 0.15);
+            --color-bg-6: rgba(194, 65, 12, 0.15);
+            --color-bg-7: rgba(190, 24, 93, 0.15);
+            --color-bg-8: rgba(8, 145, 178, 0.15);
+            --color-background: var(--color-charcoal-700);
+            --color-surface: var(--color-charcoal-800);
+            --color-text: var(--color-gray-200);
+            --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+            --color-primary: var(--color-teal-300);
+            --color-primary-hover: var(--color-teal-400);
+            --color-primary-active: var(--color-teal-800);
+            --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+            --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+            --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+            --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+            --color-error: var(--color-red-400);
+            --color-success: var(--color-teal-300);
+            --color-warning: var(--color-orange-400);
+            --color-info: var(--color-gray-300);
+            --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+            --color-btn-primary-text: var(--color-slate-900);
+            --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+            --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: var(--line-height-normal);
+            font-size: var(--font-size-base);
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 80px;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-16);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text);
+        }
+
+        .notification-bell {
+            position: relative;
+            font-size: var(--font-size-2xl);
+            cursor: pointer;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background-color: #ef4444;
+            color: white;
+            border-radius: var(--radius-full);
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+            background-color: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: 0 var(--space-16);
+        }
+
+        .desktop-nav-list {
+            display: flex;
+            list-style: none;
+            gap: var(--space-8);
+        }
+
+        .desktop-nav-item {
+            padding: var(--space-16) var(--space-20);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all var(--duration-fast);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .desktop-nav-item:hover {
+            background-color: var(--color-secondary);
+        }
+
+        .desktop-nav-item.active {
+            border-bottom-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        /* Mobile Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-around;
+            padding: var(--space-8) 0;
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-8);
+            cursor: pointer;
+            color: var(--color-text-secondary);
+            transition: color var(--duration-fast);
+            flex: 1;
+            max-width: 80px;
+        }
+
+        .nav-item.active {
+            color: var(--color-primary);
+        }
+
+        .nav-icon {
+            font-size: var(--font-size-2xl);
+        }
+
+        .nav-label {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Content Sections */
+        .section {
+            display: none;
+            padding: var(--space-16);
+            animation: fadeIn var(--duration-normal);
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-16);
+            margin-bottom: var(--space-16);
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: all var(--duration-normal);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-8);
+        }
+
+        .card-content {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Dashboard Widgets */
+        .widget-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-16);
+        }
+
+        .widget {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-20);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .widget.critical {
+            border-left: 4px solid #ef4444;
+        }
+
+        .widget-header {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-8);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .widget-value {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-12);
+        }
+
+        .widget-subtitle {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--space-16);
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: var(--color-secondary);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-bottom: var(--space-8);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--color-primary);
+            border-radius: var(--radius-full);
+            transition: width var(--duration-normal);
+        }
+
+        .progress-fill.critical {
+            background-color: #ef4444;
+        }
+
+        .progress-fill.high {
+            background-color: #f97316;
+        }
+
+        .progress-fill.medium {
+            background-color: #eab308;
+        }
+
+        /* Subject List */
+        .subject-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+        }
+
+        .subject-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .subject-name {
+            font-weight: var(--font-weight-medium);
+            flex: 1;
+        }
+
+        .subject-score {
+            font-weight: var(--font-weight-bold);
+            margin-right: var(--space-16);
+            color: var(--color-primary);
+        }
+
+        .subject-progress {
+            flex: 2;
+        }
+
+        /* Timeline Events */
+        .timeline {
+            position: relative;
+        }
+
+        .timeline-item {
+            padding: var(--space-16);
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-12);
+            cursor: pointer;
+            transition: all var(--duration-fast);
+            position: relative;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-item.critical {
+            border-left: 4px solid #ef4444;
+        }
+
+        .timeline-item.high {
+            border-left: 4px solid #f97316;
+        }
+
+        .timeline-item.medium {
+            border-left: 4px solid #eab308;
+        }
+
+        .timeline-item.low {
+            border-left: 4px solid #9ca3af;
+        }
+
+        .timeline-item.active {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .timeline-date {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-4);
+        }
+
+        .timeline-title {
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-8);
+        }
+
+        .timeline-description {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: var(--space-8);
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: var(--space-16);
+            overflow-x: auto;
+            padding-bottom: var(--space-8);
+        }
+
+        .tab {
+            padding: var(--space-12) var(--space-16);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            transition: all var(--duration-fast);
+        }
+
+        .tab.active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Checklist */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-12);
+            padding: var(--space-12);
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            transition: all var(--duration-fast);
+        }
+
+        .checklist-item:hover {
+            background-color: var(--color-secondary);
+        }
+
+        .checklist-item.completed .task-title {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checkbox.checked {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            position: relative;
+        }
+
+        .checkbox.checked::after {
+            content: '✓';
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+        }
+
+        .task-content {
+            flex: 1;
+        }
+
+        .task-title {
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--space-4);
+        }
+
+        .task-meta {
+            display: flex;
+            gap: var(--space-12);
+            font-size: var(--font-size-xs);
+            color: var(--color-text-secondary);
+            flex-wrap: wrap;
+        }
+
+        .task-badge {
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .task-badge.critical {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+        }
+
+        .task-badge.high {
+            background-color: rgba(249, 115, 22, 0.15);
+            color: #f97316;
+        }
+
+        .task-badge.medium {
+            background-color: rgba(234, 179, 8, 0.15);
+            color: #eab308;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-16);
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            padding: var(--space-20);
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .modal-close {
+            font-size: var(--font-size-2xl);
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--color-text);
+            padding: var(--space-4);
+        }
+
+        .modal-body {
+            padding: var(--space-20);
+        }
+
+        .modal-footer {
+            padding: var(--space-20);
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            gap: var(--space-12);
+            justify-content: flex-end;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: var(--space-10) var(--space-20);
+            border-radius: var(--radius-base);
+            border: none;
+            cursor: pointer;
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-base);
+            transition: all var(--duration-fast);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-secondary-hover);
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: var(--space-16);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-8);
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-sm);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--space-10);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            font-size: var(--font-size-base);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        /* Contact List */
+        .contact-group {
+            margin-bottom: var(--space-24);
+        }
+
+        .contact-group-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-12);
+            color: var(--color-primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-12);
+            padding: var(--space-12);
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-base);
+            margin-bottom: var(--space-8);
+        }
+
+        .contact-icon {
+            font-size: var(--font-size-2xl);
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-title {
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--space-4);
+        }
+
+        .contact-value {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        .contact-actions {
+            display: flex;
+            gap: var(--space-8);
+        }
+
+        .btn-small {
+            padding: var(--space-6) var(--space-12);
+            font-size: var(--font-size-xs);
+        }
+
+        /* Progress Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-16);
+            margin-bottom: var(--space-20);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: var(--space-16);
+            background-color: var(--color-secondary);
+            border-radius: var(--radius-base);
+        }
+
+        .stat-value {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-top: var(--space-4);
+        }
+
+        /* Search Box */
+        .search-box {
+            position: relative;
+            margin-bottom: var(--space-16);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: var(--space-12) var(--space-16) var(--space-12) var(--space-32);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            font-size: var(--font-size-base);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: var(--space-12);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-secondary);
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: block;
+            }
+
+            .bottom-nav {
+                display: none;
+            }
+
+            .app-container {
+                padding-bottom: var(--space-16);
+            }
+
+            .widget-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .widget-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .greeting {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-24);
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .test-history {
+            margin-top: var(--space-20);
+        }
+
+        .test-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-8) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-16);
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-base);
+            margin-bottom: var(--space-12);
+        }
+
+        .setting-label {
+            font-weight: var(--font-weight-medium);
+        }
+
+        .setting-description {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-top: var(--space-4);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 28px;
+            background-color: var(--color-secondary);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: background-color var(--duration-fast);
+        }
+
+        .toggle-switch.active {
+            background-color: var(--color-primary);
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform var(--duration-fast);
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(22px);
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        .month-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-16);
+        }
+
+        .month-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .reset-btn {
+            padding: var(--space-8) var(--space-16);
+            font-size: var(--font-size-sm);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-8) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .info-label {
+            color: var(--color-text-secondary);
+        }
+
+        .info-value {
+            font-weight: var(--font-weight-medium);
+        }
+
+        .trend-indicator {
+            font-size: var(--font-size-2xl);
+        }
+
+        .motivation-message {
+            padding: var(--space-16);
+            background-color: var(--color-bg-3);
+            border-radius: var(--radius-base);
+            margin-top: var(--space-16);
+            font-size: var(--font-size-sm);
+        }
+    </style>
 </head>
-<body>
-    <h1>Welcome to 1523app</h1>
-    <p>This is a GitHub Pages site.</p>
+<body data-color-scheme="dark">
+    <div class="app-container">
+        <header class="header">
+            <h1 class="header-title">Лицей 1523</h1>
+            <div class="notification-bell" onclick="showNotifications()">
+                🔔
+                <span class="notification-badge" id="notificationBadge" style="display: none;">0</span>
+            </div>
+        </header>
+
+        <nav class="desktop-nav">
+            <ul class="desktop-nav-list">
+                <li class="desktop-nav-item active" onclick="switchSection('dashboard')">Главная</li>
+                <li class="desktop-nav-item" onclick="switchSection('timeline')">Календарь</li>
+                <li class="desktop-nav-item" onclick="switchSection('checklist')">Чек-лист</li>
+                <li class="desktop-nav-item" onclick="switchSection('progress')">Прогресс</li>
+                <li class="desktop-nav-item" onclick="switchSection('contacts')">Контакты</li>
+                <li class="desktop-nav-item" onclick="switchSection('settings')">Настройки</li>
+            </ul>
+        </nav>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="greeting">👤 <span id="studentName">Гриша Григорьев</span></div>
+            
+            <div class="widget-grid">
+                <div class="widget critical" onclick="switchSection('timeline')">
+                    <div class="widget-header">Следующее критичное событие</div>
+                    <div class="widget-value" id="nextEventTitle">Загрузка...</div>
+                    <div class="widget-subtitle" id="nextEventDays">...</div>
+                </div>
+
+                <div class="widget" onclick="switchSection('checklist')">
+                    <div class="widget-header">Прогресс ноября 2025</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="monthProgress" style="width: 0%"></div>
+                    </div>
+                    <div class="widget-subtitle" id="monthProgressText">0 из 0 задач выполнены</div>
+                </div>
+
+                <div class="widget" onclick="switchSection('progress')">
+                    <div class="widget-header">Успеваемость</div>
+                    <div class="subject-list" id="dashboardSubjects">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </div>
+
+                <div class="widget" onclick="switchSection('settings')">
+                    <div class="widget-header">Документы</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="documentsProgress" style="width: 50%"></div>
+                    </div>
+                    <div class="widget-subtitle">2 из 4 готовы (50%)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section">
+            <h2 class="card-title">Календарь событий</h2>
+            <div class="timeline" id="timelineList">
+                <!-- Will be populated by JS -->
+            </div>
+        </section>
+
+        <!-- Checklist Section -->
+        <section id="checklist" class="section">
+            <h2 class="card-title">Чек-лист по месяцам</h2>
+            <div class="tabs" id="checklistTabs">
+                <div class="tab active" onclick="switchChecklistTab('november')">Ноябрь 2025</div>
+                <div class="tab" onclick="switchChecklistTab('december')">Декабрь 2025</div>
+                <div class="tab" onclick="switchChecklistTab('january')">Январь 2026</div>
+                <div class="tab" onclick="switchChecklistTab('february_april')">Февраль-Апрель 2026</div>
+                <div class="tab" onclick="switchChecklistTab('june')">Июнь 2026</div>
+            </div>
+
+            <div id="november" class="tab-content active">
+                <div class="month-header">
+                    <div class="month-title">Ноябрь 2025</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="novemberProgress" style="width: 0%"></div>
+                </div>
+                <div class="widget-subtitle" id="novemberProgressText" style="margin-bottom: 16px;">0 из 5 задач</div>
+                <div class="checklist" id="novemberChecklist">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <div id="december" class="tab-content">
+                <div class="month-header">
+                    <div class="month-title">Декабрь 2025</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="decemberProgress" style="width: 0%"></div>
+                </div>
+                <div class="widget-subtitle" id="decemberProgressText" style="margin-bottom: 16px;">0 из 6 задач</div>
+                <div class="checklist" id="decemberChecklist">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <div id="january" class="tab-content">
+                <div class="month-header">
+                    <div class="month-title">Январь 2026</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="januaryProgress" style="width: 0%"></div>
+                </div>
+                <div class="widget-subtitle" id="januaryProgressText" style="margin-bottom: 16px;">0 из 4 задач</div>
+                <div class="checklist" id="januaryChecklist">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <div id="february_april" class="tab-content">
+                <div class="month-header">
+                    <div class="month-title">Февраль-Апрель 2026</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="february_aprilProgress" style="width: 0%"></div>
+                </div>
+                <div class="widget-subtitle" id="february_aprilProgressText" style="margin-bottom: 16px;">0 из 6 задач</div>
+                <div class="checklist" id="february_aprilChecklist">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <div id="june" class="tab-content">
+                <div class="month-header">
+                    <div class="month-title">Июнь 2026</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="juneProgress" style="width: 0%"></div>
+                </div>
+                <div class="widget-subtitle" id="juneProgressText" style="margin-bottom: 16px;">0 из 4 задач</div>
+                <div class="checklist" id="juneChecklist">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="section">
+            <h2 class="card-title">Прогресс ребёнка</h2>
+            <div class="tabs" id="progressTabs">
+                <div class="tab active" onclick="switchProgressTab('mathematics')">Математика</div>
+                <div class="tab" onclick="switchProgressTab('physics')">Физика</div>
+                <div class="tab" onclick="switchProgressTab('informatica')">Информатика</div>
+            </div>
+
+            <div id="mathematicsTab" class="tab-content active">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="mathCurrentScore">75</div>
+                        <div class="stat-label">Текущий балл</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="mathTargetScore">90</div>
+                        <div class="stat-label">Целевой балл</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="mathLastTest">75</div>
+                        <div class="stat-label">Последний тест</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value trend-indicator" id="mathTrend">📈</div>
+                        <div class="stat-label">Тренд</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="mathProgress" style="width: 75%"></div>
+                </div>
+                <div class="motivation-message" id="mathMotivation">Отличная работа! Продолжайте в том же духе!</div>
+                <button class="btn btn-primary" style="margin-top: 16px; width: 100%;" onclick="showAddTestModal('mathematics')">Добавить результат теста</button>
+                <div class="test-history">
+                    <h3 style="margin-bottom: 12px;">История тестов</h3>
+                    <div id="mathTestHistory"></div>
+                </div>
+            </div>
+
+            <div id="physicsTab" class="tab-content">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="physicsCurrentScore">70</div>
+                        <div class="stat-label">Текущий балл</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="physicsTargetScore">60</div>
+                        <div class="stat-label">Целевой балл</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="physicsLastTest">70</div>
+                        <div class="stat-label">Последний тест</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value trend-indicator" id="physicsTrend">📈</div>
+                        <div class="stat-label">Тренд</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="physicsProgress" style="width: 70%"></div>
+                </div>
+                <div class="motivation-message" id="physicsMotivation">Отличная работа! Продолжайте в том же духе!</div>
+                <button class="btn btn-primary" style="margin-top: 16px; width: 100%;" onclick="showAddTestModal('physics')">Добавить результат теста</button>
+                <div class="test-history">
+                    <h3 style="margin-bottom: 12px;">История тестов</h3>
+                    <div id="physicsTestHistory"></div>
+                </div>
+            </div>
+
+            <div id="informaticaTab" class="tab-content">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="informaticaCurrentScore">80</div>
+                        <div class="stat-label">Текущий балл</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="informaticaTargetScore">70</div>
+                        <div class="stat-label">Целевой балл</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="informaticaLastTest">80</div>
+                        <div class="stat-label">Последний тест</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value trend-indicator" id="informaticaTrend">📈</div>
+                        <div class="stat-label">Тренд</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="informaticaProgress" style="width: 80%"></div>
+                </div>
+                <div class="motivation-message" id="informaticaMotivation">Отличная работа! Продолжайте в том же духе!</div>
+                <button class="btn btn-primary" style="margin-top: 16px; width: 100%;" onclick="showAddTestModal('informatica')">Добавить результат теста</button>
+                <div class="test-history">
+                    <h3 style="margin-bottom: 12px;">История тестов</h3>
+                    <div id="informaticaTestHistory"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacts Section -->
+        <section id="contacts" class="section">
+            <h2 class="card-title">Контакты и ссылки</h2>
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="contactSearch" placeholder="Поиск контакта..." oninput="filterContacts()">
+            </div>
+            <div id="contactsList">
+                <!-- Will be populated by JS -->
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="section">
+            <h2 class="card-title">Настройки</h2>
+            
+            <div class="contact-group">
+                <div class="contact-group-title">Профиль ребёнка</div>
+                <div class="form-group">
+                    <label class="form-label">Имя</label>
+                    <input type="text" class="form-control" id="settingsName" value="Григорий">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Фамилия</label>
+                    <input type="text" class="form-control" id="settingsSurname" value="Григорьев">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Возраст</label>
+                    <input type="number" class="form-control" id="settingsAge" value="13">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Лицей</label>
+                    <input type="text" class="form-control" id="settingsLyceum" value="1523">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Профиль</label>
+                    <select class="form-control" id="settingsProfile">
+                        <option value="fm">ФМ/IT</option>
+                        <option value="other">Другой</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="contact-group">
+                <div class="contact-group-title">Уведомления</div>
+                <div class="setting-item">
+                    <div>
+                        <div class="setting-label">Включить уведомления</div>
+                        <div class="setting-description">Получать напоминания о событиях</div>
+                    </div>
+                    <div class="toggle-switch active" id="notificationToggle" onclick="toggleNotifications()">
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Напомнить за</label>
+                    <select class="form-control" id="reminderDays">
+                        <option value="3">3 дня</option>
+                        <option value="7" selected>7 дней</option>
+                        <option value="14">14 дней</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="contact-group">
+                <div class="contact-group-title">Внешний вид</div>
+                <div class="form-group">
+                    <label class="form-label">Тема</label>
+                    <select class="form-control" id="themeSelect" onchange="changeTheme()">
+                        <option value="light">Светлая</option>
+                        <option value="dark" selected>Тёмная</option>
+                        <option value="auto">Автоматическая</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Язык</label>
+                    <select class="form-control">
+                        <option value="ru" selected>Русский</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="contact-group">
+                <div class="contact-group-title">Экспорт данных</div>
+                <button class="btn btn-secondary" style="width: 100%; margin-bottom: 12px;" onclick="exportJSON()">📥 Скачать JSON</button>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="exportCSV()">📊 Скачать CSV</button>
+            </div>
+
+            <div class="contact-group">
+                <div class="contact-group-title">О приложении</div>
+                <div class="info-row">
+                    <span class="info-label">Версия</span>
+                    <span class="info-value">1.0.0</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Дата обновления</span>
+                    <span class="info-value">16 ноября 2025</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%; margin-top: 24px;" onclick="saveSettings()">Сохранить настройки</button>
+        </section>
+
+        <!-- Bottom Navigation (Mobile) -->
+        <nav class="bottom-nav">
+            <div class="nav-item active" onclick="switchSection('dashboard')">
+                <div class="nav-icon">🏠</div>
+                <div class="nav-label">Главная</div>
+            </div>
+            <div class="nav-item" onclick="switchSection('timeline')">
+                <div class="nav-icon">📅</div>
+                <div class="nav-label">Календарь</div>
+            </div>
+            <div class="nav-item" onclick="switchSection('checklist')">
+                <div class="nav-icon">✓</div>
+                <div class="nav-label">Чек-лист</div>
+            </div>
+            <div class="nav-item" onclick="switchSection('progress')">
+                <div class="nav-icon">📊</div>
+                <div class="nav-label">Прогресс</div>
+            </div>
+            <div class="nav-item" onclick="switchSection('contacts')">
+                <div class="nav-icon">📞</div>
+                <div class="nav-label">Контакты</div>
+            </div>
+            <div class="nav-item" onclick="switchSection('settings')">
+                <div class="nav-icon">⚙️</div>
+                <div class="nav-label">Настройки</div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="eventModalTitle">Событие</h2>
+                <button class="modal-close" onclick="closeModal('eventModal')">×</button>
+            </div>
+            <div class="modal-body" id="eventModalBody">
+                <!-- Will be populated by JS -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('eventModal')">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="taskModalTitle">Задача</h2>
+                <button class="modal-close" onclick="closeModal('taskModal')">×</button>
+            </div>
+            <div class="modal-body" id="taskModalBody">
+                <!-- Will be populated by JS -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('taskModal')">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Test Modal -->
+    <div id="addTestModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Добавить результат теста</h2>
+                <button class="modal-close" onclick="closeModal('addTestModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Дата теста</label>
+                    <input type="date" class="form-control" id="testDate">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Балл (0-100)</label>
+                    <input type="number" class="form-control" id="testScore" min="0" max="100">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('addTestModal')">Отмена</button>
+                <button class="btn btn-primary" onclick="addTestResult()">Добавить</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Storage (using in-memory objects instead of localStorage)
+        let appData = {
+            events: [
+                {id: "event_001", date: "2025-11-16", title: "Начало еженедельных встреч по четвергам", description: "Встречи с администрацией лицея каждый четверг в 19:00 онлайн", category: "meeting", priority: "high", status: "active", time: "19:00", location: "Онлайн", alert_days_before: 1, completed: false},
+                {id: "event_002", date: "2025-12-01", title: "Начало подготовки документов", description: "Начните собирать необходимые документы для подачи", category: "preparation", priority: "high", status: "upcoming", time: null, location: null, alert_days_before: 3, completed: false},
+                {id: "event_003", date: "2026-01-12", title: "ОТКРЫТА РЕГИСТРАЦИЯ на вступительные испытания", description: "Критичный момент! Регистрация откроется на несколько недель. Если пропустить - не сдашь экзамены!", category: "registration", priority: "critical", status: "upcoming", time: "00:00", external_link: "https://org.mephi.ru/liceumentrance/liceum-menu", alert_days_before: 7, completed: false},
+                {id: "event_004", date: "2026-01-19", title: "День открытых дверей в лицее", description: "Встреча с администрацией, осмотр лицея, ответы на вопросы", category: "meeting", priority: "high", status: "upcoming", time: "11:00", location: "Москва, Кленовый бульвар, 21. Метро: Коломенская или Нагатинская", alert_days_before: 7, completed: false},
+                {id: "event_005", date: "2026-02-01", title: "Волна 1 вступительных испытаний", description: "Экзамены: математика, физика", category: "exam", priority: "critical", status: "upcoming", time: "09:00", alert_days_before: 7, completed: false},
+                {id: "event_006", date: "2026-03-01", title: "Волна 2 вступительных испытаний + резервные дни", description: "Повторные экзамены и резервные даты", category: "exam", priority: "high", status: "upcoming", time: "09:00", alert_days_before: 7, completed: false},
+                {id: "event_007", date: "2026-04-01", title: "ИТОГОВАЯ КОНТРОЛЬНАЯ на курсах", description: "Может заменить вступительные испытания!", category: "exam", priority: "critical", status: "upcoming", time: "10:00", alert_days_before: 14, completed: false},
+                {id: "event_008", date: "2026-04-15", title: "Волна 3 (дополнительный набор)", description: "Последний шанс пройти экзамены", category: "exam", priority: "medium", status: "upcoming", time: "09:00", alert_days_before: 7, completed: false},
+                {id: "event_009", date: "2026-06-23", title: "Получение справок о рекомендации", description: "Справки выдаются в лицее", category: "submission", priority: "high", status: "upcoming", time: "10:00-14:00", location: "Лицей 1523", alert_days_before: 7, completed: false},
+                {id: "event_010", date: "2026-06-23", title: "Онлайн-встреча с родителями", description: "Последние вопросы и информация о приёме документов", category: "meeting", priority: "high", status: "upcoming", time: "18:30", alert_days_before: 7, completed: false},
+                {id: "event_011", date: "2026-06-27", title: "Прием документов День 1", description: "КРИТИЧНЫЙ СРОК! Приносите все документы и справку о рекомендации", category: "submission", priority: "critical", status: "upcoming", time: "11:00-14:00", location: "Лицей 1523, Кленовый бульвар, 21", alert_days_before: 14, completed: false},
+                {id: "event_012", date: "2026-07-01", title: "Прием документов День 2", description: "Ещё один день для подачи документов", category: "submission", priority: "critical", status: "upcoming", time: "10:00-14:00", location: "Лицей 1523, Кленовый бульвар, 21", alert_days_before: 14, completed: false},
+                {id: "event_013", date: "2026-07-02", title: "Прием документов День 3 - ПОСЛЕДНИЙ ДЕНЬ", description: "ПОСЛЕДНЯЯ ВОЗМОЖНОСТЬ ПОДАТЬ ДОКУМЕНТЫ!", category: "submission", priority: "critical", status: "upcoming", time: "10:00-14:00", location: "Лицей 1523, Кленовый бульвар, 21", alert_days_before: 14, completed: false}
+            ],
+            tasks: {
+                november: [
+                    {id: "task_001", task: "Подписаться на Telegram @mephi_1523 и ВКонтакте @ul1523", priority: "high", category: "communication", time: "5 минут", completed: false, notes: ""},
+                    {id: "task_002", task: "Посетить 1-2 еженедельные встречи по четвергам", priority: "high", category: "communication", time: "2 часа", completed: false, notes: ""},
+                    {id: "task_003", task: "Проверить электронный журнал курсов", priority: "high", category: "preparation", time: "10 минут", completed: false, notes: ""},
+                    {id: "task_004", task: "Начать подготовку документов", priority: "medium", category: "documents", time: "30 минут", completed: false, notes: ""},
+                    {id: "task_005", task: "Рассказать Грише о лицее, мотивировать его", priority: "medium", category: "other", time: "30 минут", completed: false, notes: ""}
+                ],
+                december: [
+                    {id: "task_006", task: "Собрать копии документов: паспорт, свидетельство о рождении, регистрация", priority: "critical", category: "documents", time: "1 час", completed: false, notes: ""},
+                    {id: "task_007", task: "Сделать 4 фотографии 3×4", priority: "high", category: "documents", time: "30 минут", completed: false, notes: ""},
+                    {id: "task_008", task: "Получить справку о месте жительства", priority: "high", category: "documents", time: "30 минут", completed: false, notes: ""},
+                    {id: "task_009", task: "Начать решать демоварианты вступительных испытаний", priority: "high", category: "preparation", time: "4 часа", completed: false, notes: ""},
+                    {id: "task_010", task: "Проверить сайт admission.mephi.ru на обновления", priority: "medium", category: "communication", time: "15 минут", completed: false, notes: ""},
+                    {id: "task_011", task: "Убедиться, что Гриша регулярно выполняет домашние задания", priority: "high", category: "preparation", time: "30 минут", completed: false, notes: ""}
+                ],
+                january: [
+                    {id: "task_012", task: "ЗАРЕГИСТРИРОВАТЬ ГРАШУ НА ВСТУПИТЕЛЬНЫЕ ИСПЫТАНИЯ", priority: "critical", category: "registration", time: "30 минут", completed: false, notes: ""},
+                    {id: "task_013", task: "Посетить День открытых дверей 19 января", priority: "high", category: "communication", time: "3 часа", completed: false, notes: ""},
+                    {id: "task_014", task: "Начать решать демоварианты в интенсивном режиме", priority: "high", category: "preparation", time: "6 часов в неделю", completed: false, notes: ""},
+                    {id: "task_015", task: "Подготовить документы для подачи", priority: "medium", category: "documents", time: "1 час", completed: false, notes: ""}
+                ],
+                february_april: [
+                    {id: "task_016", task: "Контролировать решение демовариантов", priority: "high", category: "preparation", time: "2 часа в неделю", completed: false, notes: ""},
+                    {id: "task_017", task: "Проверять результаты тестов в электронном журнале", priority: "high", category: "preparation", time: "10 минут в неделю", completed: false, notes: ""},
+                    {id: "task_018", task: "Убедиться, что баллы на контрольных растут", priority: "high", category: "preparation", time: "10 минут в неделю", completed: false, notes: ""},
+                    {id: "task_019", task: "Подготовить Грашу к итоговой контрольной", priority: "critical", category: "preparation", time: "8 часов в неделю", completed: false, notes: ""},
+                    {id: "task_020", task: "Следить за эмоциональным состоянием ребёнка", priority: "high", category: "other", time: "5-10 минут ежедневно", completed: false, notes: ""},
+                    {id: "task_021", task: "Проверить, если нужен репетитор", priority: "medium", category: "preparation", time: "30 минут", completed: false, notes: ""}
+                ],
+                june: [
+                    {id: "task_022", task: "Получить справку о рекомендации к зачислению", priority: "critical", category: "documents", time: "1 час", completed: false, notes: ""},
+                    {id: "task_023", task: "Собрать полный пакет документов для зачисления", priority: "critical", category: "documents", time: "2 часа", completed: false, notes: ""},
+                    {id: "task_024", task: "Подать документы (27 июня, 1 июля или 2 июля)", priority: "critical", category: "registration", time: "1 час", completed: false, notes: ""},
+                    {id: "task_025", task: "Участвовать в онлайн-встрече с родителями", priority: "high", category: "communication", time: "1 час", completed: false, notes: ""}
+                ]
+            },
+            subjects: {
+                mathematics: {name: "mathematics", title: "Математика", current_score: 75, target_score: 90, tests: [{date: "2025-11-15", score: 75}, {date: "2025-11-13", score: 73}, {date: "2025-11-10", score: 70}]},
+                physics: {name: "physics", title: "Физика", current_score: 70, target_score: 60, tests: [{date: "2025-11-15", score: 70}, {date: "2025-11-13", score: 72}, {date: "2025-11-10", score: 68}]},
+                informatica: {name: "informatica", title: "Информатика", current_score: 80, target_score: 70, tests: [{date: "2025-11-12", score: 80}, {date: "2025-11-10", score: 79}, {date: "2025-11-08", score: 78}]}
+            },
+            settings: {
+                name: "Григорий",
+                surname: "Григорьев",
+                age: 13,
+                lyceum: "1523",
+                profile: "fm",
+                notifications: true,
+                reminderDays: 7,
+                theme: "dark"
+            }
+        };
+
+        let currentTestSubject = null;
+        const today = new Date('2025-11-16');
+
+        // Initialize app
+        function init() {
+            renderDashboard();
+            renderTimeline();
+            renderChecklists();
+            renderProgress();
+            renderContacts();
+            loadSettings();
+            checkNotifications();
+        }
+
+        // Section Switching
+        function switchSection(section) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(section).classList.add('active');
+            
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.desktop-nav-item').forEach(item => item.classList.remove('active'));
+            
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = ['dashboard', 'timeline', 'checklist', 'progress', 'contacts', 'settings'];
+            const index = sections.indexOf(section);
+            if (index >= 0 && navItems[index]) {
+                navItems[index].classList.add('active');
+            }
+            
+            const desktopNavItems = document.querySelectorAll('.desktop-nav-item');
+            if (index >= 0 && desktopNavItems[index]) {
+                desktopNavItems[index].classList.add('active');
+            }
+        }
+
+        // Dashboard
+        function renderDashboard() {
+            const criticalEvents = appData.events.filter(e => e.priority === 'critical' && !e.completed);
+            if (criticalEvents.length > 0) {
+                const nextEvent = criticalEvents.sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+                const daysUntil = Math.ceil((new Date(nextEvent.date) - today) / (1000 * 60 * 60 * 24));
+                document.getElementById('nextEventTitle').textContent = nextEvent.title;
+                document.getElementById('nextEventDays').textContent = `${daysUntil} ${daysUntil === 1 ? 'день' : daysUntil < 5 ? 'дня' : 'дней'} осталось`;
+            }
+
+            const novemberTasks = appData.tasks.november;
+            const completedNovember = novemberTasks.filter(t => t.completed).length;
+            const progressPercent = (completedNovember / novemberTasks.length) * 100;
+            document.getElementById('monthProgress').style.width = progressPercent + '%';
+            document.getElementById('monthProgressText').textContent = `${completedNovember} из ${novemberTasks.length} задач выполнены`;
+
+            const subjectsHTML = Object.values(appData.subjects).map(subject => `
+                <div class="subject-item">
+                    <div class="subject-name">${subject.title}</div>
+                    <div class="subject-score">${subject.current_score}</div>
+                    <div class="subject-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${subject.current_score}%"></div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('dashboardSubjects').innerHTML = subjectsHTML;
+
+            document.getElementById('studentName').textContent = `${appData.settings.name} ${appData.settings.surname}`;
+        }
+
+        // Timeline
+        function renderTimeline() {
+            const timelineHTML = appData.events.map(event => {
+                const eventDate = new Date(event.date);
+                const daysUntil = Math.ceil((eventDate - today) / (1000 * 60 * 60 * 24));
+                const isActive = daysUntil >= 0 && daysUntil <= 7 && event.priority === 'critical';
+                const isPast = daysUntil < 0;
+                
+                return `
+                    <div class="timeline-item ${event.priority} ${isActive ? 'active' : ''}" onclick="showEventModal('${event.id}')">
+                        <div class="timeline-date">${formatDate(event.date)} ${event.time ? '• ' + event.time : ''}</div>
+                        <div class="timeline-title">${event.title}</div>
+                        <div class="timeline-description">${event.description}</div>
+                        ${!isPast ? `<div style="margin-top: 8px; font-size: 12px; color: var(--color-text-secondary);">Через ${daysUntil} ${daysUntil === 1 ? 'день' : daysUntil < 5 ? 'дня' : 'дней'}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+            document.getElementById('timelineList').innerHTML = timelineHTML;
+        }
+
+        // Event Modal
+        function showEventModal(eventId) {
+            const event = appData.events.find(e => e.id === eventId);
+            if (!event) return;
+
+            document.getElementById('eventModalTitle').textContent = event.title;
+            
+            let bodyHTML = `
+                <div style="margin-bottom: 16px;">
+                    <strong>Описание:</strong><br>
+                    ${event.description}
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <strong>Дата:</strong> ${formatDate(event.date)}
+                </div>
+            `;
+
+            if (event.time) {
+                bodyHTML += `<div style="margin-bottom: 16px;"><strong>Время:</strong> ${event.time}</div>`;
+            }
+
+            if (event.location) {
+                bodyHTML += `<div style="margin-bottom: 16px;"><strong>Место:</strong> ${event.location}</div>`;
+            }
+
+            if (event.external_link) {
+                bodyHTML += `<div style="margin-bottom: 16px;"><strong>Ссылка:</strong> <a href="${event.external_link}" target="_blank" style="color: var(--color-primary);">${event.external_link}</a></div>`;
+            }
+
+            bodyHTML += `
+                <div style="margin-top: 20px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" ${event.completed ? 'checked' : ''} onchange="toggleEventComplete('${event.id}', this.checked)">
+                        Я это сделал
+                    </label>
+                </div>
+            `;
+
+            document.getElementById('eventModalBody').innerHTML = bodyHTML;
+            document.getElementById('eventModal').classList.add('show');
+        }
+
+        function toggleEventComplete(eventId, completed) {
+            const event = appData.events.find(e => e.id === eventId);
+            if (event) {
+                event.completed = completed;
+            }
+        }
+
+        // Checklist
+        function renderChecklists() {
+            Object.keys(appData.tasks).forEach(month => {
+                renderChecklist(month);
+            });
+        }
+
+        function renderChecklist(month) {
+            const tasks = appData.tasks[month];
+            const container = document.getElementById(month + 'Checklist');
+            
+            if (!container) return;
+
+            const html = tasks.map(task => `
+                <div class="checklist-item ${task.completed ? 'completed' : ''}">
+                    <div class="checkbox ${task.completed ? 'checked' : ''}" onclick="toggleTask('${month}', '${task.id}')"></div>
+                    <div class="task-content" onclick="showTaskModal('${month}', '${task.id}')">
+                        <div class="task-title">${task.task}</div>
+                        <div class="task-meta">
+                            <span class="task-badge ${task.priority}">${task.priority.toUpperCase()}</span>
+                            <span>⏱ ${task.time}</span>
+                            <span>📁 ${task.category}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = html;
+            updateChecklistProgress(month);
+        }
+
+        function updateChecklistProgress(month) {
+            const tasks = appData.tasks[month];
+            const completed = tasks.filter(t => t.completed).length;
+            const total = tasks.length;
+            const percent = (completed / total) * 100;
+
+            const progressBar = document.getElementById(month + 'Progress');
+            const progressText = document.getElementById(month + 'ProgressText');
+
+            if (progressBar) progressBar.style.width = percent + '%';
+            if (progressText) progressText.textContent = `${completed} из ${total} задач`;
+        }
+
+        function toggleTask(month, taskId) {
+            const task = appData.tasks[month].find(t => t.id === taskId);
+            if (task) {
+                task.completed = !task.completed;
+                renderChecklist(month);
+                renderDashboard();
+            }
+        }
+
+        function showTaskModal(month, taskId) {
+            const task = appData.tasks[month].find(t => t.id === taskId);
+            if (!task) return;
+
+            document.getElementById('taskModalTitle').textContent = task.task;
+            
+            const bodyHTML = `
+                <div style="margin-bottom: 16px;">
+                    <strong>Приоритет:</strong> <span class="task-badge ${task.priority}">${task.priority.toUpperCase()}</span>
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <strong>Категория:</strong> ${task.category}
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <strong>Время выполнения:</strong> ${task.time}
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Заметки:</label>
+                    <textarea class="form-control" id="taskNotes">${task.notes || ''}</textarea>
+                </div>
+                <button class="btn btn-primary" onclick="saveTaskNotes('${month}', '${taskId}')">Сохранить заметки</button>
+            `;
+
+            document.getElementById('taskModalBody').innerHTML = bodyHTML;
+            document.getElementById('taskModal').classList.add('show');
+        }
+
+        function saveTaskNotes(month, taskId) {
+            const task = appData.tasks[month].find(t => t.id === taskId);
+            const notes = document.getElementById('taskNotes').value;
+            if (task) {
+                task.notes = notes;
+                closeModal('taskModal');
+            }
+        }
+
+        function switchChecklistTab(month) {
+            document.querySelectorAll('#checklistTabs .tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('#checklist .tab-content').forEach(t => t.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(month).classList.add('active');
+        }
+
+        // Progress
+        function renderProgress() {
+            Object.keys(appData.subjects).forEach(subjectKey => {
+                const subject = appData.subjects[subjectKey];
+                updateSubjectDisplay(subject);
+            });
+        }
+
+        function updateSubjectDisplay(subject) {
+            const prefix = subject.name;
+            document.getElementById(prefix + 'CurrentScore').textContent = subject.current_score;
+            document.getElementById(prefix + 'TargetScore').textContent = subject.target_score;
+            document.getElementById(prefix + 'Progress').style.width = subject.current_score + '%';
+
+            if (subject.tests.length > 0) {
+                const lastTest = subject.tests[0];
+                document.getElementById(prefix + 'LastTest').textContent = lastTest.score;
+
+                const trend = calculateTrend(subject.tests);
+                document.getElementById(prefix + 'Trend').textContent = trend.icon;
+                document.getElementById(prefix + 'Motivation').textContent = trend.message;
+
+                const historyHTML = subject.tests.map(test => `
+                    <div class="test-item">
+                        <span>${formatDate(test.date)}</span>
+                        <span style="font-weight: bold; color: var(--color-primary);">${test.score} баллов</span>
+                    </div>
+                `).join('');
+                document.getElementById(prefix + 'TestHistory').innerHTML = historyHTML;
+            }
+        }
+
+        function calculateTrend(tests) {
+            if (tests.length < 2) {
+                return {icon: '➡️', message: 'Продолжайте решать тесты для отслеживания прогресса'};
+            }
+
+            const recent = tests.slice(0, 3);
+            const avg = recent.reduce((sum, t) => sum + t.score, 0) / recent.length;
+            const previous = tests.slice(3, 6);
+            const prevAvg = previous.length > 0 ? previous.reduce((sum, t) => sum + t.score, 0) / previous.length : avg;
+
+            if (avg > prevAvg + 2) {
+                return {icon: '📈', message: 'Отличная работа! Результаты растут!'};
+            } else if (avg < prevAvg - 2) {
+                return {icon: '📉', message: 'Обратите внимание на проблемные темы'};
+            } else {
+                return {icon: '➡️', message: 'Стабильные результаты, продолжайте!'};
+            }
+        }
+
+        function switchProgressTab(subject) {
+            document.querySelectorAll('#progressTabs .tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('#progress .tab-content').forEach(t => t.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(subject + 'Tab').classList.add('active');
+        }
+
+        function showAddTestModal(subject) {
+            currentTestSubject = subject;
+            document.getElementById('testDate').value = '';
+            document.getElementById('testScore').value = '';
+            document.getElementById('addTestModal').classList.add('show');
+        }
+
+        function addTestResult() {
+            const date = document.getElementById('testDate').value;
+            const score = parseInt(document.getElementById('testScore').value);
+
+            if (!date || !score || score < 0 || score > 100) {
+                alert('Пожалуйста, заполните все поля корректно');
+                return;
+            }
+
+            const subject = appData.subjects[currentTestSubject];
+            subject.tests.unshift({date, score});
+            subject.current_score = Math.round(subject.tests.slice(0, 3).reduce((sum, t) => sum + t.score, 0) / Math.min(3, subject.tests.length));
+
+            updateSubjectDisplay(subject);
+            renderDashboard();
+            closeModal('addTestModal');
+        }
+
+        // Contacts
+        function renderContacts() {
+            const contactsHTML = `
+                <div class="contact-group">
+                    <div class="contact-group-title">ЛИЦЕЙ 1523</div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Адрес</div>
+                            <div class="contact-value">Москва, Кленовый бульвар, 21</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">☎️</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Главный номер</div>
+                            <div class="contact-value">+7 (499) 614-50-94</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="tel:+74996145094" class="btn btn-primary btn-small">Позвонить</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyToClipboard('+7 (499) 614-50-94')">Копировать</button>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">☎️</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Доп. номер</div>
+                            <div class="contact-value">+7 (915) 074-16-81</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="tel:+79150741681" class="btn btn-primary btn-small">Позвонить</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyToClipboard('+7 (915) 074-16-81')">Копировать</button>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Email</div>
+                            <div class="contact-value">1523@mephi.ru</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="mailto:1523@mephi.ru" class="btn btn-primary btn-small">Написать</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyToClipboard('1523@mephi.ru')">Копировать</button>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Сайт</div>
+                            <div class="contact-value">1523.mephi.ru</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="https://1523.mephi.ru" target="_blank" class="btn btn-primary btn-small">Открыть</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Telegram</div>
+                            <div class="contact-value">@mephi_1523</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="https://t.me/mephi_1523" target="_blank" class="btn btn-primary btn-small">Открыть</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">👥</div>
+                        <div class="contact-info">
+                            <div class="contact-title">ВКонтакте</div>
+                            <div class="contact-value">@ul1523</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="https://vk.com/ul1523" target="_blank" class="btn btn-primary btn-small">Открыть</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-group">
+                    <div class="contact-group-title">КООРДИНАТОР</div>
+                    <div class="contact-item">
+                        <div class="contact-icon">👤</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Гусева Наталья Евгеньевна</div>
+                            <div class="contact-value">Координатор курсов (Кабинет 117)</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Email</div>
+                            <div class="contact-value">NEGuseva@mephi.ru</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="mailto:NEGuseva@mephi.ru" class="btn btn-primary btn-small">Написать</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyToClipboard('NEGuseva@mephi.ru')">Копировать</button>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">☎️</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Телефон</div>
+                            <div class="contact-value">8-905-505-65-63</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="tel:89055056563" class="btn btn-primary btn-small">Позвонить</a>
+                            <button class="btn btn-secondary btn-small" onclick="copyToClipboard('8-905-505-65-63')">Копировать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-group">
+                    <div class="contact-group-title">ВАЖНЫЕ ССЫЛКИ</div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📋</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Регистрация на экзамены</div>
+                            <div class="contact-value">org.mephi.ru/liceumentrance/liceum-menu</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="https://org.mephi.ru/liceumentrance/liceum-menu" target="_blank" class="btn btn-primary btn-small">Открыть</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📌</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Приемная комиссия МИФИ</div>
+                            <div class="contact-value">admission.mephi.ru</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="https://admission.mephi.ru" target="_blank" class="btn btn-primary btn-small">Открыть</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📚</div>
+                        <div class="contact-info">
+                            <div class="contact-title">Демоверсии заданий</div>
+                            <div class="contact-value">admission.mephi.ru</div>
+                        </div>
+                        <div class="contact-actions">
+                            <a href="https://admission.mephi.ru" target="_blank" class="btn btn-primary btn-small">Открыть</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('contactsList').innerHTML = contactsHTML;
+        }
+
+        function filterContacts() {
+            const searchTerm = document.getElementById('contactSearch').value.toLowerCase();
+            const contactItems = document.querySelectorAll('.contact-item');
+            
+            contactItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('Скопировано: ' + text);
+        }
+
+        // Settings
+        function loadSettings() {
+            document.getElementById('settingsName').value = appData.settings.name;
+            document.getElementById('settingsSurname').value = appData.settings.surname;
+            document.getElementById('settingsAge').value = appData.settings.age;
+            document.getElementById('settingsLyceum').value = appData.settings.lyceum;
+            document.getElementById('settingsProfile').value = appData.settings.profile;
+            document.getElementById('reminderDays').value = appData.settings.reminderDays;
+            document.getElementById('themeSelect').value = appData.settings.theme;
+
+            if (appData.settings.notifications) {
+                document.getElementById('notificationToggle').classList.add('active');
+            } else {
+                document.getElementById('notificationToggle').classList.remove('active');
+            }
+
+            document.body.setAttribute('data-color-scheme', appData.settings.theme === 'auto' ? 'dark' : appData.settings.theme);
+        }
+
+        function saveSettings() {
+            appData.settings.name = document.getElementById('settingsName').value;
+            appData.settings.surname = document.getElementById('settingsSurname').value;
+            appData.settings.age = document.getElementById('settingsAge').value;
+            appData.settings.lyceum = document.getElementById('settingsLyceum').value;
+            appData.settings.profile = document.getElementById('settingsProfile').value;
+            appData.settings.reminderDays = document.getElementById('reminderDays').value;
+            appData.settings.theme = document.getElementById('themeSelect').value;
+
+            renderDashboard();
+            alert('Настройки сохранены!');
+        }
+
+        function toggleNotifications() {
+            const toggle = document.getElementById('notificationToggle');
+            toggle.classList.toggle('active');
+            appData.settings.notifications = toggle.classList.contains('active');
+        }
+
+        function changeTheme() {
+            const theme = document.getElementById('themeSelect').value;
+            appData.settings.theme = theme;
+            document.body.setAttribute('data-color-scheme', theme === 'auto' ? 'dark' : theme);
+        }
+
+        function exportJSON() {
+            const dataStr = JSON.stringify(appData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'lyceum1523_data.json';
+            link.click();
+        }
+
+        function exportCSV() {
+            let csv = 'Type,Title,Date,Status,Priority\n';
+            
+            appData.events.forEach(event => {
+                csv += `Event,"${event.title}",${event.date},${event.completed ? 'Completed' : 'Pending'},${event.priority}\n`;
+            });
+
+            Object.keys(appData.tasks).forEach(month => {
+                appData.tasks[month].forEach(task => {
+                    csv += `Task,"${task.task}",${month},${task.completed ? 'Completed' : 'Pending'},${task.priority}\n`;
+                });
+            });
+
+            const blob = new Blob([csv], {type: 'text/csv'});
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'lyceum1523_data.csv';
+            link.click();
+        }
+
+        // Notifications
+        function checkNotifications() {
+            const reminderDays = parseInt(appData.settings.reminderDays);
+            const upcomingEvents = appData.events.filter(event => {
+                const daysUntil = Math.ceil((new Date(event.date) - today) / (1000 * 60 * 60 * 24));
+                return daysUntil >= 0 && daysUntil <= reminderDays && !event.completed;
+            });
+
+            const badge = document.getElementById('notificationBadge');
+            if (upcomingEvents.length > 0) {
+                badge.textContent = upcomingEvents.length;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        function showNotifications() {
+            const reminderDays = parseInt(appData.settings.reminderDays);
+            const upcomingEvents = appData.events.filter(event => {
+                const daysUntil = Math.ceil((new Date(event.date) - today) / (1000 * 60 * 60 * 24));
+                return daysUntil >= 0 && daysUntil <= reminderDays && !event.completed;
+            });
+
+            if (upcomingEvents.length === 0) {
+                alert('Нет предстоящих событий в ближайшие ' + reminderDays + ' дней');
+            } else {
+                const eventsList = upcomingEvents.map(e => `• ${e.title} (${formatDate(e.date)})`).join('\n');
+                alert('Предстоящие события:\n\n' + eventsList);
+            }
+        }
+
+        // Modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+
+        // Utilities
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const months = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+            return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>
